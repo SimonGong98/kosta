@@ -8,4 +8,30 @@
             - 파일 읽어오는 경우, 네트워크 데이터를 전송하려는데 연결이 안된 경우
             - 배열 값을 출력하는데 배열 요소가 없는 경우 등
     3) 로그(log) 분석을 통해 원인 파악 가능
-2. 예외
+2. 오류에 대한 전체 클래스
+                                         Throwable
+                                             |
+                                             |
+                                ---------------------------
+                                |                         |
+                              Error                   Exception
+                                                          |
+                                        -------------------------------------
+                                        |                                    |
+                                    IOException                          RuntimeException
+                                        |                                    |
+                            ------------------------                ---------------------
+                            |                       |               |                    |
+                FileNotFoumdException        SocketException    ArithmeticException     IndexOutOfBoundsException
+3. 예외 처리하기
+    1) try ~ catch 문
+
+       try {
+            // 예외가 발생할 가능성이 있는 코드 작성
+       } catch(처리할 예외 타입 e) {
+            // try 블록 안에서 예외가 발생했을 때 예외를 처리하는 부분
+       }
+    2) 컴파일러에 의해 예외가 체크되는 경우
+        - 파일 입출력에서 발생하는 예외처리
+
+
