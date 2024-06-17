@@ -1,0 +1,65 @@
+1. 문자열 표현과 객체 생성
+    1) 참조 자료형의 가장 대표적인 형태는 클래스임
+    2) 클래스 중 문자열 저장하는 클래스가 String 클래스임
+    3) 생성 방법
+        - String 참조 변수명 = new String("문자열")
+                                  ----------------
+                                  String class의 생성자
+            - 힙 메모리에 존재
+
+        - String 참조 변수명 = "문자열";
+            - 상수 풀(constant pool)에 존재
+    4) 생성 방법2
+        - 힙 메모리에 인스턴스로 생성되는 경우와
+          상수 풀에 있는 주소를 참조하는 경우가 있음
+        - 힙 메모리는 생성될 때마다 다른 주소 값을 가지지만,
+          상수 풀의 문자열은 모두 같은 주소 값을 가짐
+2. String 클래스 특징
+    1) 한 번 정의된 문자열은 변경할 수 없음
+        - 한 번 생성된 String은 불변(immutable)
+        - 특정 변수의 문자열 값을 변경하면 힙 영역에 그 값을 생성하고, 기존의 데이터는 제거된다.
+          해당 변수의 스택에는 그 새로운 값의 주소가 저장된다.
+    2) 문자열 리터럴을 바로 입력해 객체를 생성할 때 같은 문자열끼리 객체를 공유함
+3. String 클래스 주요 메소드
+    1) 문자열 길이
+        - length()
+    2) 문자열 검색
+        - char charAt(int index)            인덱스 위치에서 문자
+        - int indexOf(int ch)               문자열에 포함된 문자 또는 문자열의 위치를
+                                            앞에서부터 검색했을 때 일치하는 인덱스 값
+            
+            int indexOf(int ch, int fromIndex)
+            int lastindexOf(int ch, int fromIndex)
+    3) 문자열 변환
+        - String ValueOf(타입 클래스 변수명)        해당 타입의 값을 문자열로 변환하는 메서드
+    4) 문자열 결합
+        - String concat(String str)
+    5) 문자열 배열 변환
+        - byte[] getBytes()                 // 각 문자를 해당하는 byte로 변환
+        - byte getBytes(charSet chartset)
+        - char[] toCharArray()
+4. String 클래스의 주요 메서드 2
+    1) str.toLowerCase()
+    2) str.toUpperCase()
+    3) str.replace()                        // 일부 문자열을 다른 문자열로 변환
+    4) substring(인덱스 시작, 인덱스 종료)    // 문자열의 일부만을 포함하는 새로운 문자열 객체 리턴
+    5) split()                              // 특정 기호를 기준으로 문자열을 분리함
+    6) trim()                               // 문자열의 좌우 공백을 제거함
+    7) equals()                             // 두 문자열의 위치값이 아닌 값을 비교
+                                               대소문자 구별함
+    8) equalsIgnoreCase()                   // 두 문자열의 위치값이 아닌 값을 비교
+                                               대소문자 구분하지 않음
+5. StringBuffer & StringBuilder 클래스 활용
+    1) 프로그램을 만들다보면 문자열을 변경하거나 연결하는 경우가 많음
+    2) 문자열을 지속적으로 연결하거나 변경하는 프로그램을 작성하는 경우
+       StringBuffer나 StringBuilder를 사용함
+    3) 내부적으로 가변적인 char[]를 멤버 변수로 가짐
+    4) 문자열을 여러 번 연결하거나 변경할 때 사용하면 유용함
+    5) 새로운 인스턴스를 생성하지 않고 변경함
+    6) StringBuffer
+        - 멀티 스레드 프로그래밍에서 동기화(synchronization)를 보장
+    7) StringBuilder
+        - 단일 스레드 프로그램에서 사용을 권장
+6. text block   (java 13~)
+    1) 문자열을 """ """ 사이에 이어서 만들 수 있음
+    2) html, json 문자열을 만드는데 유용하게 사용할 수 있음
